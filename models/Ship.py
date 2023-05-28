@@ -1,60 +1,62 @@
 from abc import ABC, abstractmethod
 
+
 class Ship(ABC):
     """
     Abstract class Ship
     """
 
-    def __init__(self, id=10.4, name="Default", captain="Default", currentPort="Default", maxSpeed=10, maxCapacity=1000, currentLoad=0):
+    def __init__(self, id=10.4, name="Default", captain="Default",
+                 current_port="Default", max_speed=10, max_capacity=1000, current_load=0):
         """
         Constructor
         """
-        self._id = id
-        self._name = name
-        self._captain = captain
-        self._currentPort = currentPort
-        self._maxSpeed = maxSpeed
-        self._currentSpeed = maxSpeed
-        self._maxCapacity = maxCapacity
-        self._currentLoad = currentLoad
+        self.id = id
+        self.name = name
+        self.captain = captain
+        self.current_port = current_port
+        self.maxSpeed = max_speed
+        self.current_speed = max_speed
+        self.max_capacity = max_capacity
+        self.current_load = current_load
 
     def dock(self, port):
         """
         dock method
         """
-        self._currentPort = port
+        self.current_port = port
 
-    def setSpeed(self, speed):
+    def set_speed(self, speed):
         """
         setSpeed method
         """
-        if speed <= self._maxSpeed:
-            self._currentSpeed = speed
+        if speed <= self.maxSpeed:
+            self.current_speed = speed
 
     def load(self, weight):
         """
         load method
         """
-        if self._currentLoad + weight <= self._maxCapacity:
-            self._currentLoad += weight
+        if self.current_load + weight <= self.max_capacity:
+            self.current_load += weight
         else:
-            self._currentLoad = self._maxCapacity
+            self.current_load = self.max_capacity
 
     def unload(self):
         """
         unload method
         """
-        self._currentLoad = 0
+        self.current_load = 0
 
     @abstractmethod
-    def getTotalPeopleCount(self):
+    def get_total_people_count(self):
         """
         get the total count of people method
         """
         pass
 
     @abstractmethod
-    def calculateLoadTime(self):
+    def calculate_load_time(self):
         """
         calculate the load time method
         """
@@ -64,14 +66,6 @@ class Ship(ABC):
         """
         string method
         """
-        return f"Name: {self._name}, Captain: {self._captain}, Port: {self._currentPort}, Load: {self._currentLoad}"
-
-    @staticmethod
-    def getInstance():
-        """
-        getInstance Staticmethod
-        """
-        if not Ship.instance:
-            Ship.instance = Ship()
-        return Ship.instance
+        return f"Name: {self.name}, Captain: {self.captain}," \
+               f" Port: {self.current_port}, Load: {self.current_load}"
 

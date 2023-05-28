@@ -23,19 +23,19 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="managers\ShipManager.py">
+    <Compile Include="managers\ship_manager.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="main.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="models\Ship.py">
+    <Compile Include="models\ship.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="models\CargoShip.py">
+    <Compile Include="models\cargo_ship.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="models\CruiseShip.py">
+    <Compile Include="models\cruise_ship.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
