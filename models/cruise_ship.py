@@ -17,6 +17,7 @@ class CruiseShip(Ship):
         super().__init__(id, name, captain, current_port, max_speed, max_capacity, current_load)
         self.passengers_count = passengers_count
         self.crew_count = crew_count
+        self.colors_set = {"blue","green"}
 
     def get_total_people_count(self):
         """

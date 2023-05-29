@@ -1,3 +1,6 @@
+"""
+    import abc library
+"""
 from abc import ABC, abstractmethod
 
 
@@ -19,6 +22,13 @@ class Ship(ABC):
         self.current_speed = max_speed
         self.max_capacity = max_capacity
         self.current_load = current_load
+        self.colors_set = set()
+
+    def __iter__(self):
+        """
+        Method to iterate ship by color
+        """
+        return iter(self.colors_set)
 
     def dock(self, port):
         """

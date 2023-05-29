@@ -1,7 +1,7 @@
 """
     Import Ship
 """
-from .ship import Ship
+from models.ship import Ship
 
 class CargoShip(Ship):
     """
@@ -16,6 +16,7 @@ class CargoShip(Ship):
         """
         super().__init__(id, name, captain, current_port, max_speed, max_capacity, current_load)
         self.load_type = load_type
+        self.colors_set = {"gray","white"}
 
     def get_total_people_count(self):
         """
