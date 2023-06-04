@@ -10,13 +10,14 @@ class CruiseShip(Ship):
 
     def __init__(self, id=10.4, name="Default", captain="Default",
                  current_port="Default", max_speed=10,max_capacity=1000,
-                 current_load=0, passengers_count=0, crew_count=0):
+                 current_load=0, passengers_count=0, crew_count=0, colors_set=None):
         """
         Constructor
         """
         super().__init__(id, name, captain, current_port, max_speed, max_capacity, current_load)
         self.passengers_count = passengers_count
         self.crew_count = crew_count
+        self.colors_set = colors_set
 
     def get_total_people_count(self):
         """

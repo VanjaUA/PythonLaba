@@ -4,20 +4,16 @@
 from models.cruise_ship import CruiseShip
 from models.cargo_ship import CargoShip
 from managers.ship_manager import ShipManager
-
+from managers.ship_set_manager import ShipSetManager
 
 manager = ShipManager()
-ships = manager.find_ships_with_weight_greater_than(10)
-for ship in ships:
-    print(ship)
 
-manager.add_ship(CargoShip(8.3, "First", "Rokie", "New York", 20, 100, 40, "Oil"))
-manager.add_ship(CruiseShip(9.2, "Second", "Bill", "Amsterdam", 90, 1000, 400, 50, 10))
+manager.add_ship(CargoShip(8.3, "First", "Rokie", "New York", 20, 100, 40, "Oil", ["gray","white"]))
+manager.add_ship(CruiseShip(9.2, "Second", "Bill", "Amsterdam", 90, 1000, 400, 50, 10, ["blue","green"]))
 
-ships = manager.find_ships_with_weight_greater_than(10)
-for ship in ships:
-    print(ship)
+set_manager = ShipSetManager(manager)
 
-ships = manager.find_empty_ships()
-for ship in ships:
-    print(ship)
+print(len(set_manager))
+print(set_manager.ship_colors_sets)
+
+print(manager.check_if_port_is_default_for_ships("New York"))
