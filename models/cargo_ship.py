@@ -10,13 +10,13 @@ class CargoShip(Ship):
 
     def __init__(self, id=10.4, name="Default", captain="Default",
                  current_port="Default", max_speed=10, max_capacity=1000,
-                 current_load=0, load_type="Default"):
+                 current_load=0, load_type="Default",colors_set=None):
         """
         Constructor
         """
         super().__init__(id, name, captain, current_port, max_speed, max_capacity, current_load)
         self.load_type = load_type
-        self.colors_set = {"gray","white"}
+        self.colors_set = colors_set
 
     def get_total_people_count(self):
         """

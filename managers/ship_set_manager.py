@@ -10,7 +10,9 @@ class ShipSetManager:
         Constructor
         """
         self.manager = manager
-
+        self.ship_colors_sets = [color for ship in manager.ships for color in ship.colors_set]
+        self.__current = -1
+        
     def __iter__(self):
         """
         Allow us to iterate object
@@ -21,23 +23,19 @@ class ShipSetManager:
         """
         Return lenght of colors of all ships
         """
-        return sum(len(ship.colors_set) for ship in self.manager.ships)
+        return len(self.ship_colors_sets)
 
     def __getitem__(self, index):
         """
         Give item of selected index
         """
-        for ship in self.manager.ships:
-            if index < len(ship.colors_set):
-                return list(ship.colors_set)[index]
-            index -= len(ship.colors_set)
-        raise IndexError("SetManager index out of range")
-
+        return self.ship_colors_sets[index]
+    
     def __next__(self):
         """
         Method to iterate ships_colors
         """
-        for ship in self.manager.ships:
-            for color in ship.colors_set:
-                yield color
-        raise StopIteration
+        self.__current += 1
+        if self.__current >= len(self.ship_colors_sets):
+            raise StopAsyncIteration
+        return self.ship_colors_sets[self.__current]

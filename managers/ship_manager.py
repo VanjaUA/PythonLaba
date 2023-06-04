@@ -13,9 +13,7 @@ class ShipManager:
         """
         Constructor
         """
-        self.ships = [CruiseShip(9.1, "Hood", "Edward", "London",
-                                 40, 2000, 20, passengers_count=500, crew_count=100),
-                      CargoShip(9.3, "Black", "Rok", "Lagoon", 99, 200, load_type="Oil")]
+        self.ships = []
 
 
     def __len__(self):
@@ -26,7 +24,7 @@ class ShipManager:
 
     def __getitem__(self, index):
         """
-        Take ship at index
+        Take ship at index+_
         """
         return self.ships[index]
 
@@ -58,36 +56,34 @@ class ShipManager:
                 result.append(ship)
         return result
 
-    def run_method_for_all_ships(self, method_name):
+    def run_method_for_all_ships(self):
         """
         Run method on all ships by method name
         """
-        results = [getattr(ship, method_name)() for ship in self.ships]
-        return results
+        return [ship.get_total_people_count() for ship in self.ships]
 
     def enumerated_ship_list(self):
         """
         Method to get ship and index of ship in list ships
         """
-        return [(index,ship) for index, ship in enumerate(self.ships)]
+        return enumerate(self.ships)
     
-    def join_result_of_method_and_ship(self,method_name):
+    def join_result_of_method_and_ship(self):
         """
         Method to join result fo method and a ship which make this method
         """
-        return list(zip(self.ships,run_method_for_all_ships(method_name)))
+        return zip(self.ships,self.run_method_for_all_ships())
 
     def get_attributes_by_type(self, data_type):
         """
         Return attributes of ships by data type
         """
-        attributes = {key: value for ship in self.ships for key, value in ship.__dict__.items() if isinstance(value, data_type)}
-        return attributes
+        return {key: value for (key, value) in self.__dict__.items() if isinstance(value, data_type)}
 
-    def check_condition_for_ships(self, condition):
+    def check_if_port_is_default_for_ships(self,port):
         """
-        Return by first if all ships satisfy condition, secondly return if any ship satisfy condition
+        Return by first if all ships have default port, secondly return if any ship has default ship
         """
-        all_satisfy = all(condition(ship) for ship in self.ships)
-        any_satisfy = any(condition(ship) for ship in self.ships)
-        return {all_satisfy,any_satisfy}
+        all_satisfy = all(ship.current_port == port for ship in self.ships)
+        any_satisfy = any(ship.current_port == port for ship in self.ships)
+        return (all_satisfy,any_satisfy)
