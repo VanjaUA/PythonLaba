@@ -17,3 +17,5 @@ print(len(set_manager))
 print(set_manager.ship_colors_sets)
 
 print(manager.check_if_port_is_default_for_ships("New York"))
+
+print(manager.get_attributes_by_type(str))
