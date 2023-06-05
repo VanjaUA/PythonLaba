@@ -75,10 +75,12 @@ class ShipManager:
         return zip(self.ships,self.run_method_for_all_ships())
 
     def get_attributes_by_type(self, data_type):
-        """
-        Return attributes of ships by data type
-        """
-        return {key: value for (key, value) in self.__dict__.items() if isinstance(value, data_type)}
+        attributes = {}
+        for ship in self.ships:
+            for key, value in ship.__dict__.items():
+                if isinstance(value, data_type):
+                    attributes[key] = value
+        return attributes
 
     def check_if_port_is_default_for_ships(self,port):
         """
