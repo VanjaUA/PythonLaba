@@ -1,0 +1,21 @@
+ERROR:root:Speed can`t be greater then max speed
+Traceback (most recent call last):
+  File "C:\Users\ivanh\source\repos\PythonLaba\models\ship.py", line 31, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\ivanh\source\repos\PythonLaba\models\ship.py", line 84, in set_speed
+    raise RedundantChargeException("Speed can`t be greater then max speed")
+models.ship.RedundantChargeException: Speed can`t be greater then max speed
+ERROR:root:Speed can`t be greater then max speed
+Traceback (most recent call last):
+  File "C:\Users\ivanh\source\repos\PythonLaba\models\ship.py", line 31, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\ivanh\source\repos\PythonLaba\models\ship.py", line 84, in set_speed
+    raise RedundantChargeException("Speed can`t be greater then max speed")
+models.ship.RedundantChargeException: Speed can`t be greater then max speed
+ERROR:root:Speed can`t be greater then max speed
+Traceback (most recent call last):
+  File "C:\Users\ivanh\source\repos\PythonLaba\models\ship.py", line 31, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\ivanh\source\repos\PythonLaba\models\ship.py", line 84, in set_speed
+    raise RedundantChargeException("Speed can`t be greater then max speed")
+models.ship.RedundantChargeException: Speed can`t be greater then max speed
